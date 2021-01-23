@@ -9,15 +9,28 @@ main {
   margin: 25px 0;
 }
 
+.skip-link {
+  position: absolute;
+  top: -1000px;
+}
+
+.skip-link:focus {
+  top: 0px;
+  border: 2px solid red;
+  background-color: red;
+  color: white;
+  z-index: 10000;
+}
+
 .colors-one,
 .colors-one h2 {
-  color: #EBEA76;
+  color: #ebea76;
 }
 
 .colors-two,
 .colors-two h2 {
-  background: #00CD34;
-  color: #BC00BB;
+  background: #00cd34;
+  color: #bc00bb;
 }
 
 .colors-three,
