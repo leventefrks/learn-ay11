@@ -14,7 +14,7 @@ function open() {
   const focusableElements = modal.querySelectorAll(
     'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed'
   );
-  const focusableElementsArray = Array.prototype.slice.call(focusableElements);
+  const focusableElementsArray = Array.from(focusableElements);
 
   const firstItem = focusableElementsArray[0];
   const lastItem = focusableElementsArray[focusableElementsArray.length - 1];
@@ -22,7 +22,13 @@ function open() {
   const activeElement = document.activeElement;
   modal.addEventListener('keydown', trap);
 
-  function trap() {
+  function trap(event) {
+    if (event.keyCode == 27) {
+      console.log(event.keyCode);
+      event.preventDefault();
+      close();
+    }
+
     if (event.keyCode == 9) {
       if (event.shiftKey) {
         if (document.activeElement === firstItem) {
